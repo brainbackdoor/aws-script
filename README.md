@@ -6,7 +6,7 @@
 #### Confiugration 🚀
 
 
-- **EC2 Instances** created within 1 day
+- **EC2 Instances** created within 1 day / stopped
 - Unmounted **EBS volumes**
 - Unused **Elastic IPs**
 - Network Full Band Opened **Security Group** (22, 3306 port)
