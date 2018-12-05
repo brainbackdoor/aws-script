@@ -20,7 +20,7 @@ while read REGION; do
     SQL=`aws ec2 describe-security-groups --filters "Name=ip-permission.to-port,Values=3306" | jq '.SecurityGroups[]'`
     if [ "${SQL}" != "" ]; then
             echo "# Security Group (Port:3306 / CIDR:0.0.0.0/0)"
-            aws ec2 describe-security-groups --filters "Name=ip-permission.to-port,Values=3306"  --query 'SecurityGroups[?length(IpPermissions[?ToPort==`22` && contains(IpRanges[].CidrIp, `0.0.0.0/0`)]) > `0`].{GroupName: GroupName, TagName: Tags[?Key==`Name`].Value | [0]}' --output table
+            aws ec2 describe-security-groups --filters "Name=ip-permission.to-port,Values=3306"  --query 'SecurityGroups[?length(IpPermissions[?ToPort==`3306` && contains(IpRanges[].CidrIp, `0.0.0.0/0`)]) > `0`].{GroupName: GroupName, TagName: Tags[?Key==`Name`].Value | [0]}' --output table
     fi
 
 
